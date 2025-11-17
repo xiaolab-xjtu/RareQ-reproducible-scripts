@@ -97,9 +97,9 @@ cluster.patient.cnt.MG <- table(as.character(MG.obj$cluster_sort), MG.obj$sample
 
 
 MG_top_markers <- mk.MG %>%
-  dplyr::group_by(cluster) %>%  # 按集群分组
-  dplyr::arrange(dplyr::desc(avg_log2FC), .by_group = TRUE) %>%  # 按log2FC降序
-  dplyr::slice_head(n = 50)  # 取每个集群的前10个基因
+  dplyr::group_by(cluster) %>%  
+  dplyr::arrange(dplyr::desc(avg_log2FC), .by_group = TRUE) %>%  
+  dplyr::slice_head(n = 50)  
 write.csv(MG_top_markers, file = 'MG_top50_markers.csv')
 saveRDS(MG_top_markers, file = 'MG_top50_markers.RDS')
 
@@ -171,7 +171,7 @@ gsea.ana <- function(DE.res, category){
   Go_gseresult <- clusterProfiler::enricher(geneList, TERM2GENE=m_t2g)
   #Go_gseresult <- gseGO(geneList, 'org.Hs.eg.db', keyType = "ENTREZID", ont="all", nPerm = 1000, minGSSize = 10, maxGSSize = 1000, pvalueCutoff=1)
   #KEGG_gseresult <- gseKEGG(geneList, nPerm = 1000, minGSSize = 10, maxGSSize = 1000, pvalueCutoff=1)
-  #gseaplot2(Go_gseresult,1:5,pvalue_table = TRUE) #输出第1个结果
+  #gseaplot2(Go_gseresult,1:5,pvalue_table = TRUE) 
   go.res <- Go_gseresult@result
   go.res <- go.res[go.res$p.adjust < 0.01,]
   #return(go.res)
@@ -205,12 +205,12 @@ plot.GO <- function(path){
     scale_fill_manual(values = c('#8870ad', '#65A83E'), name='Microglia Cluster') +
     labs(x='-log10(q value)', y='GO terms') +
     geom_text(
-      aes(label = Pathway, x=0, y = Pathway),  # 使用value作为y轴位置（顶部）
-      hjust = 0,  # 左对齐
-      vjust = 0.5,  # 垂直方向靠上
-      position = position_dodge(0.7),  # 与柱子宽度匹配
-      color = "black",  # 标签颜色
-      size = 4  # 字体大小
+      aes(label = Pathway, x=0, y = Pathway),  
+      hjust = 0, 
+      vjust = 0.5, 
+      position = position_dodge(0.7),  
+      color = "black", 
+      size = 4  
     )
   p
 }

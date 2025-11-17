@@ -114,9 +114,9 @@ saveRDS(mk, file = 'Cluster_Marker_RNA.RDS')
 mk = readRDS('Cluster_Marker_RNA.RDS')
 
 top_markers <- mk %>%
-  dplyr::group_by(cluster) %>%  # 按集群分组
-  dplyr::arrange(dplyr::desc(avg_log2FC), .by_group = TRUE) %>%  # 按log2FC降序
-  dplyr::slice_head(n = 5)  # 取每个集群的前10个基因
+  dplyr::group_by(cluster) %>%  
+  dplyr::arrange(dplyr::desc(avg_log2FC), .by_group = TRUE) %>%  
+  dplyr::slice_head(n = 5) 
 
 p1 <- DotPlot(sc_object, features = unique(top_markers$gene)) + coord_flip()
 ggsave(p1, filename = 'cluster_marker_dotplot.pdf', height = 20, width = 16)

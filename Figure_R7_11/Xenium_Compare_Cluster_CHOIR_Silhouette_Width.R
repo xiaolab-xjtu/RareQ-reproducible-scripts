@@ -140,7 +140,7 @@ df$Result = df.ind$res
 
 
 
-## Volcano plots of DEGs between small clusters with their nearest clusters
+## Heatmaps of DEGs between small clusters with their nearest clusters
 norm.count = seu_obj@assays$RNA@scale.data
 p.comb = do.call(ggarrange,lapply(1:30, function(kk){
   ident1 = rownames(dist.mat)[kk]

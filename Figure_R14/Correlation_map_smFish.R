@@ -6,8 +6,6 @@ setwd('/home/rstudio/Projects/Rare_cell/data/Choroid_plexus/')
 
 load('cor_matrix.Rdata')
 
-c(4286, 12574)
-
 seu_obj = readRDS('seu_obj.RDS')
 label = readRDS('label.RDS')
 RareQ.pred = readRDS('OUR_result.RDS')
