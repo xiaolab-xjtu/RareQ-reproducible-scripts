@@ -54,6 +54,21 @@ tidyr (1.3.0)
 tidyverse (1.3.1)
 
 Python Package (Version)
+anndata (0.8.0)
+marsgt (0.2.1)
+numpy (1.22.3)
+pandas (1.4.2)
+python (3.8.15)
+scanpy (1.9.1)
+scikit-learn (1.1.2)
+scipy (1.9.1)
+torch (1.12.0+cpu)
+torch-cluster (1.6.0+pt112cpu)
+torch-geometric (0.93)
+torch-scatter (2.0.9)
+torch-sparse (0.6.14)
+torchmetrics (0.9.3)
+
 
 
 
